@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Baby 💘</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Arial, sans-serif;
+    background: linear-gradient(to bottom right, #ff758c, #ff7eb3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+}
+
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    max-width: 90%;
+}
+
+h1 {
+    color: #ff4d6d;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+button {
+    margin: 15px 10px 0 10px;
+    padding: 12px 22px;
+    font-size: 1em;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.3s, font-size 0.3s, padding 0.3s;
+}
+
+.yes-btn {
+    background-color: #ff4d6d;
+    color: white;
+}
+
+.no-btn {
+    background-color: #ccc;
+    color: black;
+    position: relative;
+}
+
+button:active {
+    transform: scale(0.9);
+}
+
+.heart {
+    position: fixed;
+    color: #ff4d6d;
+    animation: floatUp 4s linear forwards;
+}
+
+@keyframes floatUp {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-100vh); opacity: 0; }
+}
+
+.secret {
+    margin-top: 20px;
+    font-size: 1em;
+    color: #ff4d6d;
+    opacity: 0;
+    transition: opacity 2s ease;
+}
+
+.secret.show {
+    opacity: 1;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>My Baby 💖</h1>
+    <p id="message">Will you be my Valentine?</p>
+
+    <button class="yes-btn" onclick="sayYes()">Yes 💕</button>
+    <button class="no-btn" id="noBtn">No 😢</button>
+
+    <div class="secret" id="secretMessage">
+        i know it’s late but i know this would be a sweet gesture anyway, i love you ❤️
+    </div>
+</div>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+const message = document.getElementById("message");
+const secretMessage = document.getElementById("secretMessage");
+
+let scale = 1;
+let clickCount = 0;
+
+noBtn.addEventListener("touchstart", shrinkAndMove);
+noBtn.addEventListener("mouseover", shrinkAndMove);
+
+function shrinkAndMove() {
+    clickCount++;
+
+    const x = Math.random() * 200 - 100;
+    const y = Math.random() * 200 - 100;
+    
+    scale -= 0.15;
+
+    if (scale <= 0.1) {
+        noBtn.style.display = "none";
+        message.innerHTML = "Nice try My Baby 😌 You were always going to say yes 💘";
+        return;
+    }
+
+    noBtn.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+
+    const teasingMessages = [
+        "Are you sure? 🥺",
+        "Think again 😏",
+        "That’s not the right answer 👀",
+        "Be serious My Baby 😌",
+        "You know you want to 💕"
+    ];
+
+    message.innerHTML = teasingMessages[clickCount % teasingMessages.length];
+}
+
+function sayYes() {
+    message.innerHTML = "YAY My Baby!! 💘 You just made me the happiest person alive ❤️";
+
+    for (let i = 0; i < 30; i++) {
+        let heart = document.createElement("div");
+        heart.innerHTML = "❤️";
+        heart.className = "heart";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (Math.random() * 20 + 20) + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 4000);
+    }
+
+    setTimeout(() => {
+        secretMessage.classList.add("show");
+    }, 3000);
+}
+</script>
+
+</body>
+</html>
