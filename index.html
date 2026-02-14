@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For My Baby 💘</title>
+<title>for my baby❤️</title>
 
 <style>
 body {
@@ -89,11 +89,11 @@ button:active {
 <body>
 
 <div class="container">
-    <h1>My Baby 💖</h1>
+    <h1>baby❤️</h1>
     <p id="message">Will you be my Valentine?</p>
 
-    <button class="yes-btn" onclick="sayYes()">Yes 💕</button>
-    <button class="no-btn" id="noBtn">No 😢</button>
+    <button class="yes-btn" onclick="sayYes()">yes❤️</button>
+    <button class="no-btn" id="noBtn">no😔</button>
 
     <div class="secret" id="secretMessage">
         i know it’s late but i know this would be a sweet gesture anyway, i love you ❤️
@@ -121,25 +121,25 @@ function shrinkAndMove() {
 
     if (scale <= 0.1) {
         noBtn.style.display = "none";
-        message.innerHTML = "Nice try My Baby 😌 You were always going to say yes 💘";
+        message.innerHTML = "nice try baby, you were always going to say yes 💘";
         return;
     }
 
     noBtn.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
 
     const teasingMessages = [
-        "Are you sure? 🥺",
-        "Think again 😏",
-        "That’s not the right answer 👀",
-        "Be serious My Baby 😌",
-        "You know you want to 💕"
+        "are you sure? 🥺",
+        "think again 😏",
+        "that’s not the right answer 👀",
+        "bathong?? be serious!!",
+        "you know you want to 💕"
     ];
 
     message.innerHTML = teasingMessages[clickCount % teasingMessages.length];
 }
 
 function sayYes() {
-    message.innerHTML = "YAY My Baby!! 💘 You just made me the happiest person alive ❤️";
+    message.innerHTML = "o passitse!! you just made me the happiest man❤️";
 
     for (let i = 0; i < 30; i++) {
         let heart = document.createElement("div");
